@@ -12,11 +12,11 @@ function App() {
     const [tracks, setTracks] = useState <Track[] | null>(null)
 
     useEffect(() => {
-        setTracks(        [
-            {id: 1, title: 'Musicfun soundtrack', url: 'https://musicfun.it-incubator.app/api/samurai-way-soundtrack.mp3'},
-            {id: 2, title: 'Musicfun soundtrack', url: 'https://musicfun.it-incubator.app/api/samurai-way-soundtrack.mp3'},
-            {id: 3, title: 'Musicfun soundtrack', url: 'https://musicfun.it-incubator.app/api/samurai-way-soundtrack.mp3'}
-        ])
+      fetch('https://musicfun.it-incubator.app/api/1.0/playlists/tracks')
+          .then(res => res.json())
+          .then(json => {
+              setTracks(json.data)
+          })
     }, []);
 
     return (
