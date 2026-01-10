@@ -1,7 +1,7 @@
 import {useTracks} from '../businessLogicLayer/useTracks.ts';
 import {TrackItem} from './TrackItem.tsx';
 
-import './Playlist.css'
+import styles from './Playlist.module.css'
 
 type Props = {
     selectedTrackId: string | null
@@ -14,7 +14,7 @@ export const Playlist = (props: Props) => {
     const {tracks} = useTracks();
 
     return <div >
-        <ul className={'tracks'}>
+        <ul className={styles.tracks}>
             {tracks?.map((track) => {
                 return <TrackItem
                     key={track.id}

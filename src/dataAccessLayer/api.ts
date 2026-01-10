@@ -1,4 +1,9 @@
-const apiKey = '66f5e2dc-af1c-4f3e-9a2c-4c6e754f0d20';
+const apiKey = import.meta.env.VITE_API_KEY;
+
+if (import.meta.env.DEV && !apiKey) {
+    console.error('API key is missing! Check your .env file');
+}
+
 const headers = {
     'api-key': apiKey
 }
