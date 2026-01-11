@@ -1,11 +1,13 @@
 const apiKey = import.meta.env.VITE_API_KEY;
 
+const headers: HeadersInit = {}
+
 if (import.meta.env.DEV && !apiKey) {
     console.error('API key is missing! Check your .env file');
 }
 
-const headers = {
-    'api-key': apiKey
+if (apiKey) {
+    headers['api-key'] = apiKey
 }
 
 export const getTrack = async (trackId: string) => {
